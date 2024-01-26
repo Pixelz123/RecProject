@@ -1,0 +1,109 @@
+{% load component_tags %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&#38;display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {%component 'navbar'%}
+
+    <main id="main-content" class="min-h-[60vh]">
+        <section class="section">
+            {% for exp in Experience %}
+            <br />
+            <br />
+            <br />
+            <div class="float-md-end .d-sm-none .d-lg-block" style="position:inherit ;width: 18rem;margin-right:3%">
+
+                <ul class="list-group list-group-light mb-4">
+                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                        style="color:white;background-color: rgb(38, 44, 53);">
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">INTERVIEW DETAILS...</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <p class="mb-1">Role: {{exp.role}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <p class=" mb-1">Organisation: {{exp.org}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <p class=" mb-1">Date: {{exp.date}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <p class=" mb-1">Author: {{exp.author}}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="main_area" style="padding-left:1%;width:60%  ">
+                <article class="row justify-left">
+                    <div class="md:col-10 text-left">
+
+                        <h1 class="h2">Interview Experience {{exp.serial}} </h1>
+
+                    </div>
+
+                    <div class="md:col-5">
+                        <div class="content mb-16 text-left">
+                            <p>
+                                <strong>Actual content from db<br /></strong>
+                                {{exp.content}}
+                            </p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut
+                                aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam
+                                optio expedita praesentium est adipisci dolorem ut eius!</p>
+                            <h4 id="creative-design">Further Details:(stock content just to fill up )</h2>
+                                <p>Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu
+                                    ipsum
+                                    sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque
+                                    blandit euismod.</p>
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur
+                                        ut
+                                        aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur
+                                        quibusdam
+                                        optio expedita praesentium est adipisci dolorem ut eius!</p>
+                                </blockquote>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut
+                                    aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam
+                                    optio expedita praesentium est adipisci dolorem ut eius!</p>
+                        </div>
+
+                        {% endfor %}
+
+
+
+</body>
+
+</html>

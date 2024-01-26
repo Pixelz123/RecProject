@@ -1,0 +1,72 @@
+{% load component_tags %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body style="background-color:white ; color:#342f3d">
+  <section class="vh-100 mx-3">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid"
+            alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <a href="{% url 'home'%}">Back to Home</a>
+          <div class="messsage_box" style="color:red">
+            {%for msg in messages%}
+            {%if msg.tags %}
+            {{msg}}
+            {%endif%}
+            {%endfor%}
+          </div>
+          <form method="post" action="{% url 'signin' %}">
+            {% csrf_token %}
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input id="Username" class="form-control form-control-lg" name="Username" />
+              <label class="form-label" for="Username">Username</label>
+            </div>
+
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="password" name="password" class="form-control form-control-lg" />
+              <label class="form-label" for="password">Password</label>
+            </div>
+
+
+
+
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+
+            <div class="divider d-flex align-items-center my-4">
+              <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+            </div>
+
+            <!-- <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!" role="button">
+              <i class="fab fa-facebook-f me-2"></i>Continue with Google
+            </a> -->
+            <br />
+            Dont have an account ? Create One..
+            <a href="{% url 'signup' %}">sign up ..</a>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
